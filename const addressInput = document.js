@@ -81,7 +81,7 @@ document.querySelector('#step1').addEventListener('submit', function(event) {
   event.preventDefault();
 
   // Collect the selected option index
-  var selectedIndex = document.querySelector('#Date').selectedIndex;
+  var selectedIndex = document.querySelector('#Last-name').selectedIndex;
 
   // Store the selected option index in local storage
   localStorage.setItem('selectedIndex', selectedIndex);
@@ -94,7 +94,7 @@ document.querySelector('#step1').addEventListener('submit', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
   if (localStorage.getItem('selectedIndex')) {
     // Get the value of the selected option using the options property of the select element
-    var selectedValue = document.querySelector('#Date').options[localStorage.getItem('selectedIndex')].value;
+    var selectedValue = document.querySelector('#Last-name').options[localStorage.getItem('selectedIndex')].value;
 
     // Fill the output field with the selected value
     document.querySelector('#date-previous').value = selectedValue;
