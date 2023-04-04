@@ -76,15 +76,4 @@ $('[data-toggle="datepicker"]').datepicker({
 
 
 
-  // Add an event listener to the first input field to store its value in sessionStorage
-document.querySelector('#Last-name').addEventListener('input', function() {
-  sessionStorage.setItem('firstInputValue', this.value);
-});
-
-// Add an event listener to the document to retrieve the value of the first input field from sessionStorage and populate the second input field
-document.addEventListener('DOMContentLoaded', function() {
-  var firstInputValue = sessionStorage.getItem('firstInputValue');
-  if (firstInputValue !== null) {
-    document.querySelector('#date-previous').value = firstInputValue;
-  }
-});
+ 
