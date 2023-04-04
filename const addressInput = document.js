@@ -76,40 +76,15 @@ $('[data-toggle="datepicker"]').datepicker({
 
 
 
-  // Add an event listener to the form to prevent default submission behavior and store the selected option index in local storage
-document.querySelector('#step1').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  // Collect the selected option index
-  var selectedIndex = document.querySelector('#Last-name').selectedIndex;
-
-  // Store the selected option index in local storage
-  localStorage.setItem('selectedIndex', selectedIndex);
-
-  // Show the next step of the form
-  document.querySelector('#step3').style.display = 'block';
+  // Add an event listener to the select input to store the selected value in sessionStorage
+document.querySelector('#Date').addEventListener('change', function() {
+  sessionStorage.setItem('selectedValue', this.value);
 });
 
-// Add an event listener to the page to retrieve the selected option index from local storage and fill the output field if needed
+// Add an event listener to the document to retrieve the selected value from sessionStorage and populate the text input
 document.addEventListener('DOMContentLoaded', function() {
-  if (localStorage.getItem('selectedIndex')) {
-    // Get the value of the selected option using the options property of the select element
-    var selectedValue = document.querySelector('#Last-name').options[localStorage.getItem('selectedIndex')].value;
-
-    // Fill the output field with the selected value
+  var selectedValue = sessionStorage.getItem('selectedValue');
+  if (selectedValue !== null) {
     document.querySelector('#date-previous').value = selectedValue;
   }
 });
-
-
-
-
-
-
-
-
-  
-
-  
-
-
