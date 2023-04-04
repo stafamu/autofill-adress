@@ -77,7 +77,7 @@ $('[data-toggle="datepicker"]').datepicker({
 
 
   // Add an event listener to the first input field to store its value in sessionStorage
-document.querySelector('#Date').addEventListener('input', function() {
+document.querySelector('#Last-name').addEventListener('input', function() {
   sessionStorage.setItem('firstInputValue', this.value);
 });
 
