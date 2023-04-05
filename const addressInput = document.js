@@ -71,6 +71,7 @@ $('[data-toggle="datepicker"]').datepicker({
   onSelect: function(date) {
     // Add a hidden input field to the form with the selected date
     $('#email-form').append('<input type="hidden" name="selected-date" value="' + date + '">');
+    console.log('Hidden field added with value: ' + date);
   }
 });
 
