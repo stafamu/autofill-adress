@@ -66,13 +66,17 @@ Webflow.push(function () {
 
 
 $('[data-toggle="datepicker"]').datepicker({
-    language: 'fr-FR',
-    autoPick: true
+  language: 'fr-FR',
+  autoPick: true,
+  onSelect: function(date) {
+    // Add a hidden input field to the form with the selected date
+    $('#email-form').append('<input type="hidden" name="selected-date" value="' + date + '">');
+  }
 });
 
+// Disable the first option in the select field
+$("#email-form option:first-child").attr("disabled", "disabled");
 
-
-  $( "#email-form option:first-child" ).attr("disabled","disabled");
 
 
 
