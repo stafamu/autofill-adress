@@ -79,6 +79,35 @@ $('[data-toggle="datepicker"]').datepicker({
 $("#email-form option:first-child").attr("disabled", "disabled");
 
 
+const selectField = document.querySelector('#Domaine'); // replace "your-element" with the ID of your select field
+const valuesToTargets = {
+  'Achat-Revente': '#Activites-Achat-Vente',
+  'Agent commercial': '#Agent-Commercial',
+  'Artisanat': '#Activites-Artisanat',
+  'Bâtiment/Gros œuvre/Second œuvre': '#Activites-B-timent-Gros-oeuvre-Second-oeuvre',
+  'Beauté/Bien-être/Esotérisme': '#Activites-Beaut-Bien--tre-Esot-risme',
+  'Conseil/Expertise/Services aux entreprises': '#Activites-Conseil-Expertise-Services-aux-entreprises',
+  'Cours et Formation': '#Activites-Cours-et-Formation',
+  'Culture, Animation, Sports et Spectacles': '#Activites-Culture-Animation-Sports-et-Spectacles',
+  'Hôtellerie-Restauration, Tourisme': '#Activites-H-tellerie-Restauration-Tourisme',
+  'Location': '#Activites-Location-d-quipements-et-de-mat-riel',
+  'Mécanique/Technique': '#Activites-M-canique-Technique',
+  'Médical/Santé': '#Activites-M-dical-Sant',
+  'Services à la personne et aux animaux': '#Activites-Services-la-personne-et-aux-animaux',
+  'Agricole': '#Activites-Transport-Livraison-Logistique',
+  'Web/Informatique/Multimédias': '#Activites-Web-Informatique-Multim-dias',
+  
+};
+const targetElements = Object.values(valuesToTargets).map(selector => document.querySelector(selector));
 
+selectField.addEventListener('change', () => {
+  // hide all target elements by default
+  targetElements.forEach(element => element.style.display = 'none');
 
- 
+  // show only the target element that matches the selected value in the select field
+  const selectedValue = selectField.value;
+  if (selectedValue in valuesToTargets) {
+    const targetElement = document.querySelector(valuesToTargets[selectedValue]);
+    targetElement.style.display = 'block';
+  }
+});
